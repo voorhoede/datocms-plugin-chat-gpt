@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# DatoCMS plugin: AI Content Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AI assistant to quickly generate realistic content based on keywords using ChatGPT v3 (OpenAI).
 
-## Available Scripts
+![](https://github.com/voorhoede/datocms-plugin-chat-gpt/raw/main/docs/chat-gpt-ai-content-generator-generated-text.png)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Generate text using GPT-3
+- Fill in text fields with generated text
+- Generate text using a specific model
+- Generate text using a specific prompt
+- Generate text using a specific temperature
+- Generate text using a specific max tokens
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Configuration
+Add the plugin to your DatoCMS project, Settings > Plugins > Add new plugin > Search for "ChatGPT" > Install.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Plugin settings
+For this plugin you need to set an API key from the OpenAI API.
+To get an API key from OpenAI, follow these steps:
+1. Go to https://beta.openai.com/ and create an account
+2. Go to https://beta.openai.com/account/api-keys and create a new API key
+3. Copy the API key and paste it in the plugin settings
+4. Save the plugin settings
+5. You're ready to go!
 
-### `npm test`
+Once you have set the API key, you can select a [model](https://beta.openai.com/docs/models),
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Expert Mode
+Expert mode is a mode that allows you to use the full power of GPT-3. In this mode you can use a [temperature](https://algowriting.medium.com/gpt-3-temperature-setting-101-41200ff0d0be) and [max tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them).
+This mode is only available for the `davinci` models. If you want to calculate the tokens for your prompt, you can use this [tokenizer](https://beta.openai.com/tokenizer).
 
-### `npm run build`
+![](https://github.com/voorhoede/datocms-plugin-chat-gpt/raw/main/docs/chat-gpt-ai-content-generator-plugin-settings.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Field settings
+In the edit field settings you can select the ChatGPT field in the presentation tab and the ChatGPT options will be shown underneath the field.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](https://github.com/voorhoede/datocms-plugin-chat-gpt/raw/main/docs/chat-gpt-ai-content-generator-field-settings.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](https://github.com/voorhoede/datocms-plugin-chat-gpt/raw/main/docs/chat-gpt-ai-content-generator-field-settings-applied.png)
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+See [contributing.md](https://github.com/voorhoede/datocms-plugin-chat-gpt/blob/main/contributing.md).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+*MIT Licensed* by [De Voorhoede](https://www.voorhoede.nl).

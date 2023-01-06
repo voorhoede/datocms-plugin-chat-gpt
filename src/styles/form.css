@@ -1,0 +1,17 @@
+.form > div {
+  margin-bottom: 0;
+}
+
+.form__field-group {
+  display: flex;
+  gap: var(--spacing-l);
+}
+
+.form__field-group > * {
+  flex: 0 0 25%;
+}
+
+.form__field-group > *:last-child {
+  width: 100%;
+  flex: 1
+}

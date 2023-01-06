@@ -1,7 +1,7 @@
 {
-  "name": "datocms-plugin-chat-gpt",
+  "name": "datocms-plugin-chat-gpt-ai-content-generator",
   "version": "0.1.0",
-  "description": "ChatGPT is a plugin for DatoCMS that uses GPT-3 to generate text and fill in text fields within the DatoCMS interface, saving time and effort for users who need to fill in dummy data.",
+  "description": "AI assistant to quickly generate realistic content based on keywords using ChatGPT v3 (OpenAI).",
   "private": true,
   "scripts": {
     "start": "cross-env BROWSER='none' PUBLIC_URL='/' react-scripts start",
@@ -27,7 +27,9 @@
     "openai-gpt3-plugin-for-dato-cms",
     "text",
     "text-generation",
-    "text-generation-plugin"
+    "text-generation-plugin",
+    "ai-content-generator",
+    "ai-content"
   ],
   "author": "Voorhoede <zowie@voorhoede.nl>",
   "license": "MIT",
@@ -82,8 +84,8 @@
     "prettier": "^2.8.1"
   },
   "datoCmsPlugin": {
-    "title": "ChatGPT Plugin",
-    "previewImage": "",
+    "title": "AI Content Generator",
+    "previewImage": "docs/chat-gpt-ai-content-generator-generated-text.png",
     "coverImage": "",
     "entryPoint": "build/index.html"
   }

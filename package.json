@@ -86,7 +86,7 @@
   "datoCmsPlugin": {
     "title": "AI Content Generator",
     "previewImage": "docs/chat-gpt-ai-content-generator-generated-text.png",
-    "coverImage": "",
+    "coverImage": "docs/chat-gpt-ai-content-generator-cover.png",
     "entryPoint": "build/index.html"
   }
 }

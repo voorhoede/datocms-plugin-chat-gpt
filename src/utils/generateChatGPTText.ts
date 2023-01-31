@@ -22,7 +22,7 @@ export async function generateChatGPTText(
       if (response.status === 200) {
         return {
           statusCode: response.status,
-          text: response.data.choices[0].text?.trim(),
+          text: response.data.choices[0].text?.trim().replace(/^"(.*)"$/, '$1'),
           usage: response.data.usage,
         }
       }

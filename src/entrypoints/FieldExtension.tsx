@@ -136,10 +136,8 @@ export default function FieldExtension({ ctx }: Props) {
       {usage && isGenerated && (
         <div style={{ marginTop: '1rem' }}>
           <p>
-            Usage: prompt tokens:
-            {usage.prompt_tokens}, completion tokens:
-            {usage.completion_tokens}, total tokens:
-            {usage.total_tokens}
+            Usage: prompt tokens: {usage.prompt_tokens}, completion tokens:{' '}
+            {usage.completion_tokens}, total tokens: {usage.total_tokens}
           </p>
         </div>
       )}

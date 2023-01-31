@@ -1,6 +1,6 @@
 {
   "name": "datocms-plugin-chat-gpt-ai-content-generator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "AI assistant to quickly generate realistic content based on keywords using ChatGPT v3 (OpenAI).",
   "private": true,
   "scripts": {
@@ -83,9 +83,13 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.1"
   },
+  "files": [
+    "build",
+    "docs"
+  ],
   "datoCmsPlugin": {
     "title": "AI Content Generator",
-    "previewImage": "docs/chat-gpt-ai-content-generator-generated-text.png",
+    "previewImage": "docs/chat-gpt-ai-content-generator-video.mp4",
     "coverImage": "docs/chat-gpt-ai-content-generator-cover.png",
     "entryPoint": "build/index.html"
   }

@@ -30,10 +30,10 @@ export default function FieldExtension({ ctx }: Props) {
   const [usage, setUsage] = useState(usageProps)
   const [isGenerated, setIsGenerated] = useState(false)
 
-  const fieldId = ctx.field.id
+  const fieldId = `${ctx.item?.id}-${ctx.field.id}`
   const pluginParams = ctx.plugin.attributes.parameters as ConfigParameters
   const initialValue =
-    pluginParams.fields && pluginParams.fields[fieldId as never]
+    pluginParams.fields && pluginParams.fields[fieldId as never] && ctx.item?.id
       ? pluginParams.fields[fieldId as never]
       : {}
 
@@ -57,10 +57,12 @@ export default function FieldExtension({ ctx }: Props) {
         onSubmit={async (values: FieldConfigParameters) => {
           const fields = { ...pluginParams.fields, [fieldId]: values }
 
-          await ctx.updatePluginParameters({
-            ...pluginParams,
-            fields,
-          })
+          if (ctx.item?.id) {
+            await ctx.updatePluginParameters({
+              ...pluginParams,
+              fields,
+            })
+          }
 
           setIsLoading(true)
           setUsage(usageProps)

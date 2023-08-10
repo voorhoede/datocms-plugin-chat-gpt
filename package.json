@@ -1,7 +1,7 @@
 {
   "name": "datocms-plugin-chat-gpt-ai-content-generator",
   "homepage": "https://github.com/voorhoede/datocms-plugin-json-table",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AI assistant to quickly generate realistic content based on keywords using ChatGPT v3 (OpenAI).",
   "engines": {
     "node": ">=18.0.0"

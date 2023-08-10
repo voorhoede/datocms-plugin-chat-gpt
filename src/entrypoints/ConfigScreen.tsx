@@ -35,7 +35,7 @@ export default function ConfigScreen({ ctx }: Props) {
         setModels(data.data)
       }
 
-      fetchModels().catch(error => {
+      fetchModels().catch((error) => {
         console.error(error)
       })
     }
@@ -43,7 +43,7 @@ export default function ConfigScreen({ ctx }: Props) {
 
   useEffect(() => {
     if (models) {
-      const modelOptions = models.data.map(model => ({
+      const modelOptions = models.data.map((model) => ({
         label: model.id,
         value: model.id,
       }))
@@ -142,7 +142,7 @@ export default function ConfigScreen({ ctx }: Props) {
                       label="Toggle expert mode"
                       hint="check this if you want to use the plugin in expert mode"
                       value={expertMode}
-                      onChange={value => {
+                      onChange={(value) => {
                         SetExpertMode(value)
                         input.onChange(value)
                       }}

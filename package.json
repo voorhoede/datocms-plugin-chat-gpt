@@ -1,15 +1,46 @@
 {
   "name": "datocms-plugin-chat-gpt-ai-content-generator",
+  "homepage": "https://github.com/voorhoede/datocms-plugin-json-table",
   "version": "1.0.1",
   "description": "AI assistant to quickly generate realistic content based on keywords using ChatGPT v3 (OpenAI).",
-  "private": false,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "cross-env BROWSER='none' PUBLIC_URL='/' react-scripts start",
     "build": "cross-env PUBLIC_URL='.' react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prepublishOnly": "npm run build"
+    "prettier": "prettier --write .",
+    "pre-commit": "npm run prettier",
+    "prepack": "npm run build",
+    "prepare": "husky install",
+    "postversion": "git push --follow-tags"
   },
+  "dependencies": {
+    "@types/node": "^20.4.9",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "datocms-plugin-sdk": "^0.7.14",
+    "datocms-react-ui": "^0.7.14",
+    "openai": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-final-form": "^6.5.9",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.4",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.3",
+    "react-scripts": "^5.0.1"
+  },
+  "files": [
+    "build",
+    "docs"
+  ],
   "keywords": [
     "datocms",
     "datocms-plugin",
@@ -31,31 +62,34 @@
     "ai-content-generator",
     "ai-content"
   ],
-  "author": "Voorhoede <zowie@voorhoede.nl>",
-  "license": "MIT",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.11",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.10",
-    "datocms-plugin-sdk": "^0.6.15",
-    "datocms-react-ui": "^0.6.15",
-    "openai": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-final-form": "^6.5.9",
-    "react-scripts": "^5.0.1",
-    "typescript": "^4.9.4",
-    "web-vitals": "^2.1.4"
+  "author": "Voorhoede",
+  "license": "ISC",
+  "datoCmsPlugin": {
+    "title": "AI Content Generator",
+    "previewImage": "docs/chat-gpt-ai-content-generator-generated-text.png",
+    "coverImage": "docs/chat-gpt-ai-content-generator-cover.png",
+    "entryPoint": "build/index.html"
   },
   "eslintConfig": {
+    "plugins": [
+      "prettier"
+    ],
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "prettier"
+    ],
+    "rules": {
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "prettier/prettier": 1
+    }
   },
   "browserslist": {
     "production": [
@@ -68,29 +102,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.30.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-import-resolver-typescript": "^3.5.2",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.11",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.8.1"
-  },
-  "files": [
-    "build",
-    "docs"
-  ],
-  "datoCmsPlugin": {
-    "title": "AI Content Generator",
-    "previewImage": "docs/chat-gpt-ai-content-generator-video.mp4",
-    "coverImage": "docs/chat-gpt-ai-content-generator-cover.png",
-    "entryPoint": "build/index.html"
   }
 }

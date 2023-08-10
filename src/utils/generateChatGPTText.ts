@@ -3,7 +3,7 @@ import { ConfigParameters, FieldConfigParameters } from '../types'
 
 export async function generateChatGPTText(
   parameters: FieldConfigParameters,
-  config: ConfigParameters
+  config: ConfigParameters,
 ) {
   if (config.apiKey) {
     const configuration = new Configuration({

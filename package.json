@@ -1,7 +1,7 @@
 {
   "name": "datocms-plugin-chat-gpt-ai-content-generator",
   "homepage": "https://github.com/voorhoede/datocms-plugin-chat-gpt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AI assistant to quickly generate realistic content based on keywords using ChatGPT v3 (OpenAI).",
   "engines": {
     "node": ">=18.0.0"
@@ -35,6 +35,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
+    "prettier": "^3.0.1",
     "react-scripts": "^5.0.1"
   },
   "files": [

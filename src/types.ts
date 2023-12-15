@@ -1,3 +1,7 @@
+export enum DatoFieldType {
+  structuredTextField = 'structured_text',
+}
+
 export type FirstInstallationParameters = {
   apiKey: ''
   temperature: 0

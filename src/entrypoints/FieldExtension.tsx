@@ -13,6 +13,7 @@ import { Field, Form as FormHandler } from 'react-final-form'
 import { generateChatGPTText } from '../utils/generateChatGPTText'
 import { ConfigParameters, FieldConfigParameters, UsageProps } from '../types'
 import { textOptions } from '../data/options'
+import { normalizeResponseText } from '../utils/normalizeResponseText'
 
 type Props = {
   ctx: RenderFieldExtensionCtx
@@ -72,7 +73,12 @@ export default function FieldExtension({ ctx }: Props) {
           if (response?.statusCode === 200) {
             setIsGenerated(true)
             setUsage(response.usage ?? usageProps)
-            await ctx.setFieldValue(ctx.fieldPath, response?.text)
+
+            const fieldValue = normalizeResponseText(
+              response?.text || '',
+              ctx.field.attributes.field_type,
+            )
+            await ctx.setFieldValue(ctx.fieldPath, fieldValue)
           } else {
             await ctx.alert(`Error: ${response?.text}`)
           }

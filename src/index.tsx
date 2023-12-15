@@ -1,6 +1,4 @@
-import React from 'react'
-import { connect } from 'datocms-plugin-sdk'
-import { PluginAttributes } from 'datocms-plugin-sdk/dist/types/SiteApiSchema'
+import { FieldType, connect } from 'datocms-plugin-sdk'
 import { render } from './utils/render'
 import ChatGPTConfigScreen from './entrypoints/ChatGPTConfigScreen'
 import ConfigScreen from './entrypoints/ConfigScreen'
@@ -19,9 +17,7 @@ connect({
         id: 'chatGPT',
         name: 'ChatGPT Field',
         type: 'addon',
-        fieldTypes: ['text', 'string', 'structured_text'] as NonNullable<
-          PluginAttributes['field_types']
-        >,
+        fieldTypes: ['text', 'string', 'structured_text'] as FieldType[],
         configurable: true,
       },
     ]

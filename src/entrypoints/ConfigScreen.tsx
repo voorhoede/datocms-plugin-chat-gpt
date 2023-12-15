@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { RenderConfigScreenCtx } from 'datocms-plugin-sdk'
 import {
   Button,
@@ -10,7 +10,8 @@ import {
   SwitchField,
 } from 'datocms-react-ui'
 import { Form as FormHandler, Field } from 'react-final-form'
-import { Configuration, ListModelsResponse, OpenAIApi } from 'openai'
+import { Model } from 'openai/resources'
+import OpenAIApi from 'openai'
 import { ConfigParameters } from '../types'
 
 type Props = {
@@ -19,19 +20,19 @@ type Props = {
 
 export default function ConfigScreen({ ctx }: Props) {
   const [apiKey, setApiKey] = useState('')
-  const [models, setModels] = useState<ListModelsResponse | null | void>(null)
+  const [models, setModels] = useState<Model[] | null | void>(null)
   const [options, setOptions] = useState<{ label: string; value: string }[]>([])
   const [expertMode, SetExpertMode] = useState(false)
 
   useEffect(() => {
     if (apiKey) {
-      const configuration = new Configuration({
+      const client = new OpenAIApi({
         apiKey: apiKey || (ctx.plugin.attributes.parameters.apiKey as string),
+        dangerouslyAllowBrowser: true,
       })
-      const client = new OpenAIApi(configuration)
 
       const fetchModels = async () => {
-        const data = await client.listModels()
+        const data = await client.models.list()
         setModels(data.data)
       }
 
@@ -43,7 +44,7 @@ export default function ConfigScreen({ ctx }: Props) {
 
   useEffect(() => {
     if (models) {
-      const modelOptions = models.data.map((model) => ({
+      const modelOptions = models.map((model) => ({
         label: model.id,
         value: model.id,
       }))

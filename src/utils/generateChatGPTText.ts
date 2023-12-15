@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from 'openai'
+import OpenAIApi from 'openai'
 import { ConfigParameters, FieldConfigParameters } from '../types'
 
 export async function generateChatGPTText(
@@ -6,30 +6,28 @@ export async function generateChatGPTText(
   config: ConfigParameters,
 ) {
   if (config.apiKey) {
-    const configuration = new Configuration({
+    const client = new OpenAIApi({
       apiKey: config.apiKey,
+      dangerouslyAllowBrowser: true,
     })
-    const client = new OpenAIApi(configuration)
 
     try {
-      const response = await client.createCompletion({
+      const response = await client.completions.create({
         model: config.model.value,
-        prompt: `Make a ${parameters.textOption.value} with ${parameters.characters} characters with the following keywords ${parameters.keywords}`,
+        prompt: `Make a ${parameters.textOption.value} with ${parameters.characters} characters with the following keywords ${parameters.keywords} not starting with punctuation marks.`,
         max_tokens: Number(config.maxTokens),
         temperature: Number(config.temperature),
       })
 
-      if (response.status === 200) {
-        return {
-          statusCode: response.status,
-          text: response.data.choices[0].text?.trim().replace(/^"(.*)"$/, '$1'),
-          usage: response.data.usage,
-        }
+      return {
+        statusCode: 200,
+        text: response.choices[0].text.trim().replace(/^"(.*)"$/, '$1'),
+        usage: response.usage,
       }
     } catch (e: any) {
       return {
-        statusCode: e.response.status,
-        text: e.response.data.error.message,
+        statusCode: e.status,
+        text: e.message,
       }
     }
   }

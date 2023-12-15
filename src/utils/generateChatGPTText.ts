@@ -14,7 +14,7 @@ export async function generateChatGPTText(
     try {
       const response = await client.completions.create({
         model: config.model.value,
-        prompt: `Make a ${parameters.textOption.value} with ${parameters.characters} characters with the following keywords ${parameters.keywords} not starting with punctuation marks.`,
+        prompt: `Make a ${parameters.textOption.value} with ${parameters.characters} characters with the following keywords ${parameters.keywords}`,
         max_tokens: Number(config.maxTokens),
         temperature: Number(config.temperature),
       })
